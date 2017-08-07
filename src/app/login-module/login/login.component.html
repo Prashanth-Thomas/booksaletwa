@@ -1,0 +1,23 @@
+<form name="login-form" class="login-form" action="" method="post">
+
+  <div class="header">
+    <h4>Welcome to LibraryBuy</h4>
+    <span>Please, Enter the Credentials</span>
+  </div>
+
+  <div class="content">
+    <input name="Email" type="text" class="input username" placeholder="Username" [(ngModel)]="email"/>
+    <div class="user-icon"></div>
+    <input name="password" type="password" class="input password" placeholder="Password" [(ngModel)]="password"/>
+    <div class="pass-icon"></div>
+  </div>
+
+  <div class="footer">
+    <button class="btn btn-primary btn-block" style="padding: 10px 0px 10px 0px" (click)="onSubmit()">Login</button>
+    <div style="margin-top: 20px">
+      <a><p (click)="onForget()">Forgot Password?</p></a>
+    </div>
+  </div>
+</form>
+
+

@@ -4,17 +4,31 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import {LoginModule} from './login-module/login.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import {AppRoutingModule} from './routing.module';
+import {AuthenticationService} from './common/service/authentication.service';
+
+
+import {AdminModuleModule} from "./admin-module/admin-module.module";
+import {UserService} from "./common/service/user.service";
+import {BookService} from "./common/service/book.service";
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    LoginModule,
+    AppRoutingModule,
+    AdminModuleModule
   ],
-  providers: [],
+  providers: [ AuthenticationService, BookService, UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

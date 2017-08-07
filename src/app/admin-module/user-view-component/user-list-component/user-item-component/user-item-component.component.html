@@ -1,0 +1,20 @@
+<a style="cursor: pointer"
+   [routerLink]="[selectedName]" class="list-group-item " style="margin-bottom: 5px">
+<div class="row" >
+  <div class="col-lg-3" style="margin-right:5px">
+    <img [src]=imageUrl
+         class="img-circle"
+         style="max-width:50px"
+         alt='customer image' />
+  </div>
+  <div class="col-lg-5" >
+    <div style="font-weight:bold;">
+      <h3 >{{user.name}}</h3>
+      <span class="pull-right" title="Delete customer">
+                <i class="glyphicon glyphicon-trash"></i>
+            </span>
+    </div>
+    <h6>{{user.contact}}</h6>
+  </div>
+</div>
+</a>
