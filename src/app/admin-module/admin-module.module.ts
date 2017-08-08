@@ -22,6 +22,8 @@ import {UserService} from "../common/service/user.service";
 import {BookService} from "../common/service/book.service";
 import {FilterPipe} from "../common/pipes/filter.pipe";
 import {SearchService} from "../common/service/search.service";
+import {UserResolve} from "../common/service/user-detailResolve.resolve";
+import {BookResolve} from "../common/service/book-detailResolve";
 
 @NgModule({
   imports: [
@@ -45,7 +47,7 @@ import {SearchService} from "../common/service/search.service";
     UsersChartComponent,
     SidebarComponent
   ],
-  providers:[UserService,BookService,SearchService],
+  providers:[UserService,BookService,SearchService,UserResolve,BookResolve],
   bootstrap: [AdminComponentComponent]
 })
 export class AdminModuleModule { }

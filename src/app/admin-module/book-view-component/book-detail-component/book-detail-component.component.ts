@@ -20,10 +20,15 @@ export class BookDetailComponentComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params:Params)=> {this.id=+params['bookId'];
-        this.book=this.bookServ.getbookById(this.id);
+        this.bookServ.getbookById(this.id).subscribe(
+          (book)=>{
+            this.book=book;
+          }
+        );
       });
   this.userServ.getUserById(this.book.sellerId).subscribe((user)=>{
     this.seller=user;
   });
+    this.book = this.route.snapshot.data['bookObject'];
       }
   }

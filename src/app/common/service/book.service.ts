@@ -22,12 +22,13 @@ export class BookService {
 
 
   getbookById (id:number) {
-    for (const item of this.books) {
-      console.log("item user id "+item.bookId);
-      if (item.bookId === id) {
-        console.log("inside if");
-        return item;
+    return this.http.get("https://bookseller-d2aeb.firebaseio.com/Books.json").map((response:Response)=> {
+      for (const item of response.json()) {
+        if (item.userId === id) {
+          console.log("inside if");
+          return item;
+        }
       }
-    }
+    });
   }
 }

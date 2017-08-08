@@ -25,6 +25,8 @@ export class UserDetailComponentComponent implements OnInit {
         });
       }
     );
+
+    this.user = this.route.snapshot.data['userObject'];
   }
 
 }
