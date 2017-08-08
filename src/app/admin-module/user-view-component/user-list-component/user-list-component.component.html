@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-12">
     <app-user-item-component
-      *ngFor="let userEl of users|filter:searchData:'name';"
+      *ngFor="let userEl of users;"
       [user]="userEl"
     [userId]="userEl.userId">
     </app-user-item-component>

@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
  */
 @Injectable()
 export class AuthenticationService {
-  isLoggedin=false;
+  isLoggedin=true;
   isAdmin: boolean;
   token: string;
 
