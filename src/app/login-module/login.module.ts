@@ -22,7 +22,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     FormsModule,
     HttpModule
   ],
-  providers: [ AuthenticationService ],
+  providers: [ ],
   bootstrap: [LoginComponent],
   exports: [LoginComponent]
 })

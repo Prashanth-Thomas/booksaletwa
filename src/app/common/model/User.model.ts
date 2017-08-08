@@ -3,7 +3,6 @@
  */
 
 export class User{
-
   public name:string;
   public contact:number;
   public email:string;

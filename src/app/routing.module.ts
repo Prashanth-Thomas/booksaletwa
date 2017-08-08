@@ -3,6 +3,7 @@ import { RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login-module/login/login.component';
 import {SignUpComponent} from './login-module/sign-up/sign-up.component';
 import {ForgotPasswordComponent} from './login-module/forgot-password/forgot-password.component';
+import {ProfileComponent} from "./shared-module/profile/profile.component";
 
 
 
@@ -10,6 +11,7 @@ import {ForgotPasswordComponent} from './login-module/forgot-password/forgot-pas
 const appRoutes: Routes = [
   { path: '' , redirectTo: '/login', pathMatch: 'full' },
   { path: 'login' , component: LoginComponent },
+  { path: 'profile' , component: ProfileComponent },
   { path: 'signUp' , component: SignUpComponent },
   { path: 'forgotPassword' , component: ForgotPasswordComponent },
   { path: 'admin', loadChildren: "./admin-module/admin-module.module#AdminModuleModule"}

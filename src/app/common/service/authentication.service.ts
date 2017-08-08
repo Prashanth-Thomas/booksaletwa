@@ -9,6 +9,7 @@ export class AuthenticationService {
   isLoggedin=true;
   isAdmin: boolean;
   token: string;
+  email: string;
 
   constructor(private router:Router){};
 
@@ -25,6 +26,7 @@ export class AuthenticationService {
             this.token = token;
             this.isLoggedin=true;
             console.log(token);
+            this.email=email;
             this.router.navigate(['/admin/admin/users']);
           });
         })

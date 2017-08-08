@@ -13,12 +13,14 @@ import {AuthenticationService} from './common/service/authentication.service';
 import {AdminModuleModule} from "./admin-module/admin-module.module";
 import {UserService} from "./common/service/user.service";
 import {BookService} from "./common/service/book.service";
+import {SearchService} from "./common/service/search.service";
+import {SharedModule} from "./shared-module/shared.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +28,10 @@ import {BookService} from "./common/service/book.service";
     HttpModule,
     LoginModule,
     AppRoutingModule,
-    AdminModuleModule
+    AdminModuleModule,
+    SharedModule
   ],
-  providers: [ AuthenticationService ],
+  providers: [ AuthenticationService, UserService, SearchService, BookService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
