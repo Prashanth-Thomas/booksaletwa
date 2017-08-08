@@ -9,7 +9,7 @@ import {Book} from "../../../../common/model/Book.model";
 export class BookItemComponentComponent implements OnInit {
 
   @Input() book:Book;
-  @Input() index:number;
+  @Input() bookId:number;
 
 
   constructor() { }

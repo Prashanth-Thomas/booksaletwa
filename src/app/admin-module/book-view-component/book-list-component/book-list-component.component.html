@@ -4,7 +4,7 @@
         <app-book-item-component
           *ngFor="let bookEl of books; let i=index"
           [book]="bookEl"
-          [index]="i">
+          [bookId]="bookEl.bookId">
         </app-book-item-component>
 
 </div>

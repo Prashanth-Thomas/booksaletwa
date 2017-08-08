@@ -11,14 +11,14 @@ import {User} from "../../../common/model/User.model";
 })
 export class UserListComponentComponent implements OnInit {
   searchData='';
-  private users:User[];
+  private userscmp:User[];
   constructor(private userService:UserService, private  searchService: SearchService) {
-    this.userService.getUsers().subscribe((data)=> {
-      this.users=data;
-    });
   }
 
   ngOnInit() {
+    this.userService.getUsers().subscribe((data)=> {
+      this.userscmp=data;
+    });
 
     this.searchService.searchSender.subscribe((data:string)=> {
       this.searchData=data;});

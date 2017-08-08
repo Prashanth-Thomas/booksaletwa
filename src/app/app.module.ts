@@ -28,7 +28,7 @@ import {BookService} from "./common/service/book.service";
     AppRoutingModule,
     AdminModuleModule
   ],
-  providers: [ AuthenticationService, BookService, UserService ],
+  providers: [ AuthenticationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

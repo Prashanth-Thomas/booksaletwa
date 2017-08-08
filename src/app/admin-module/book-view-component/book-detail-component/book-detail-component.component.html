@@ -1,12 +1,12 @@
 <div class="container">
 <div class="row"  style="margin-top: 40px;">
   <div class="col-md-6 item-photo" style="margin-right: 60px;">
-    <img style="max-width:100%;"  [src]=imgUrl />
+    <img style="max-width:100%;"  [src]=book.image />
   </div>
   <div class="col-md-4" style="border:0px solid gray">
     <!-- Datos del vendedor y titulo del producto -->
-    <h3>{{book.title}}</h3>
-    <h5 style="color:#337ab7">{{book.author}}</h5>
+    <h3>{{book.Title}}</h3>
+    <h5 style="color:#337ab7">{{book.Author}}</h5>
 
     <!-- Precios -->
     <h6 class="title-price"><small>Price</small></h6>
@@ -14,16 +14,16 @@
 
     <!-- Detalles especificos del producto -->
     <div class="section">
-      <h6 class="title-attr" style="margin-top:15px;" ><small>{{book.seller.name}}</small></h6>
+      <h6 class="title-attr" style="margin-top:15px;" ><small>{{seller.name}}</small></h6>
     </div>
     <div class="section" style="padding-bottom:5px;">
-      <h6 class="title-attr"><small>{{book.seller.contact}}</small></h6>
+      <h6 class="title-attr"><small>{{seller.contact}}</small></h6>
     </div>
     <div class="section" style="padding-bottom:20px;">
-      <h6 class="title-attr"><small>{{book.seller.email}}</small></h6>
+      <h6 class="title-attr"><small>{{seller.email}}</small></h6>
     </div>
     <div class="section" style="padding-bottom:20px;">
-      <h6 class="title-attr"><small>{{book.seller.address}}</small></h6>
+      <h6 class="title-attr"><small>{{seller.address}}</small></h6>
     </div>
 
     <!-- Botones de compra -->

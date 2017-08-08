@@ -13,15 +13,16 @@ import {User} from "../../../common/model/User.model";
 export class UserDetailComponentComponent implements OnInit {
 
   user:User;
- userId:number
+  userId:string;
 
   constructor( private route:ActivatedRoute,private userService:UserService) { }
 
   ngOnInit() {
     this.route.params.subscribe(
-      (params:Params)=>{ this.userId=params['id'];
+      (params:Params)=> { this.userId=params['userId'];
       console.log(this.route.snapshot.params);
         this.user=this.userService.getUserById(this.userId);
+        console.log("user : "+this.user);
       }
     );
   }

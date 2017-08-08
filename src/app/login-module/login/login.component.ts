@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
 import {AuthenticationService} from '../../common/service/authentication.service';
 import {Router} from '@angular/router';
 import {UserService} from "../../common/service/user.service";
@@ -17,13 +16,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log('Trying to login');
-    //this.authService.signInUser(this.email, this.password);
+    this.authService.signInUser(this.email, this.password);
     this.email = '';
     this.password = '';
-    if(this.authService.isLoggedin){
-      this.userService.usersQuickStore();
-    }
-
   }
 
   onForget() {

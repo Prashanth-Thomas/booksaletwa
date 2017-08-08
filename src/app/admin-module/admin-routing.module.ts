@@ -14,10 +14,10 @@ import {UsersChartComponent} from "./users-chart/users-chart.component";
 const adminRoutes:Routes=[
   { path: '', component: AdminComponentComponent},
   {path:'admin/users',component:UserViewComponentComponent ,children:[
-    {path:':selectedName',component:UserDetailComponentComponent}
+    {path:':userId',component:UserDetailComponentComponent}
   ]},
   {path:'admin/books',component:BookViewComponentComponent},
-  {path:'admin/books/:id', component:BookDetailComponentComponent},
+  {path:'admin/books/:bookId', component:BookDetailComponentComponent},
   {path:'admin/chart',component:UsersChartComponent}
 ];
 

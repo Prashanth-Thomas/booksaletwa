@@ -9,20 +9,25 @@ import "rxjs/Rx";
 @Injectable()
 export class BookService {
 
-  books: any;
+  books:Book[];
   constructor(private userService:UserService, private http: Http) { }
 
   getBooks() {
     return this.http.get("https://bookseller-d2aeb.firebaseio.com/Books.json").map((response: Response)=> {
       console.log(response.json());
-      this.books=response.json;
+      this.books=response.json();
       return response.json();
     });
   }
 
 
-  getBookById(id:number) {
-    return this.books[id];
+  getbookById (id:number) {
+    for (const item of this.books) {
+      console.log("item user id "+item.bookId);
+      if (item.bookId === id) {
+        console.log("inside if");
+        return item;
+      }
+    }
   }
-
 }

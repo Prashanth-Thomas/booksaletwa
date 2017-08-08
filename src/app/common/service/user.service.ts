@@ -8,12 +8,15 @@ import {User} from "../model/User.model";
 @Injectable()
 export class UserService {
   users:User[];
-  constructor(private http:Http) { }
+  constructor(private http:Http) {
+    console.log("CONSTRUCTOR USER!");
+  }
 
   getUsers() {
-    return this.http.get("https://bookseller-d2aeb.firebaseio.com/Users").map((response:Response)=> {
+    return this.http.get("https://bookseller-d2aeb.firebaseio.com/Users.json").map((response:Response)=> {
       console.log("====================="+response.json());
-      return response.json();
+      this.users=response.json()
+      return this.users;
     });
   }
 
@@ -26,12 +29,15 @@ export class UserService {
   });
   }
 
-  getUserById (id:number) {
-    for (const item of this.users) {
-      if (item.userId === id) {
-        return item;
-      }
+  getUserById (id:string) {
+    this.usersQuickStore();
+  for (const item of this.users) {
+    console.log("item user id "+item.userId);
+    if (item.userId === id) {
+      console.log("inside if");
+      return item;
     }
   }
+}
 
 }
