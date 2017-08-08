@@ -21,9 +21,9 @@ export class BookDetailComponentComponent implements OnInit {
     this.route.params.subscribe(
       (params:Params)=> {this.id=+params['bookId'];
         this.book=this.bookServ.getbookById(this.id);
-        this.seller=this.userServ.getUserById(this.book.sellerId);
+      });
+  this.userServ.getUserById(this.book.sellerId).subscribe((user)=>{
+    this.seller=user;
+  });
       }
-    );
   }
-
-}

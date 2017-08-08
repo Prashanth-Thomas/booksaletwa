@@ -21,23 +21,17 @@ export class UserService {
   }
 
   usersQuickStore() {
-    this.getUsers().subscribe((data)=> {
-      this.users=data;
-      console.log("hiiiiiiiiiiiiiiii");
-    }, (err) => {
-      console.log(err);
-  });
+    this.getUsers().subscribe();
   }
 
   getUserById (id:string) {
-    this.usersQuickStore();
-  for (const item of this.users) {
-    console.log("item user id "+item.userId);
-    if (item.userId === id) {
-      console.log("inside if");
-      return item;
-    }
-  }
+      return this.http.get("https://bookseller-d2aeb.firebaseio.com/Users.json").map((response:Response)=> {
+        for (const item of response.json()) {
+          if (item.userId === id) {
+            console.log("inside if");
+            return item;
+          }
+        }
+      });
 }
-
 }
