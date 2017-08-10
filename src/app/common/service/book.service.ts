@@ -24,7 +24,7 @@ export class BookService {
   getbookById (id:number) {
     return this.http.get("https://bookseller-d2aeb.firebaseio.com/Books.json").map((response:Response)=> {
       for (const item of response.json()) {
-        if (item.userId === id) {
+        if (item.bookId === id) {
           console.log("inside if");
           return item;
         }

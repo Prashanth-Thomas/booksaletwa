@@ -26,6 +26,7 @@ import {UserResolve} from "../common/service/user-detailResolve.resolve";
 import {BookResolve} from "../common/service/book-detailResolve";
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import {SharedModule} from "../shared-module/shared.module";
+import {BookDetailUserResolve} from "../common/service/book-detailUserResolver";
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import {SharedModule} from "../shared-module/shared.module";
     SharedModule
   ],
   declarations: [
+    //BookDetailUserResolve,
     BookViewComponentComponent,
     UserViewComponentComponent,
     BookListComponentComponent,
@@ -49,7 +51,7 @@ import {SharedModule} from "../shared-module/shared.module";
     FilterPipe,
     UsersChartComponent,
     SidebarComponent,
-    AdminProfileComponent,
+    AdminProfileComponent
   ],
   providers:[UserService,BookService,SearchService,UserResolve,BookResolve],
   bootstrap: [AdminComponentComponent]

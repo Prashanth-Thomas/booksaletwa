@@ -26,9 +26,8 @@ export class BookDetailComponentComponent implements OnInit {
           }
         );
       });
-  this.userServ.getUserById(this.book.sellerId).subscribe((user)=>{
-    this.seller=user;
-  });
     this.book = this.route.snapshot.data['bookObject'];
+  this.seller=this.book = this.route.snapshot.data['bookUserObject'];
+   // this.book = this.route.snapshot.data['bookObject'];
       }
   }

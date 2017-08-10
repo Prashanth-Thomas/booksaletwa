@@ -10,6 +10,7 @@ import {UserResolve} from "../common/service/user-detailResolve.resolve";
 import {BookResolve} from "../common/service/book-detailResolve";
 import {ProfileComponent} from "../shared-module/profile/profile.component";
 import {AdminProfileComponent} from "./admin-profile/admin-profile.component";
+import {BookDetailUserResolve} from "../common/service/book-detailUserResolver";
 /**
  * Created by ajiben on 8/1/2017.
  */
@@ -25,10 +26,14 @@ const adminRoutes:Routes=[
       }}
   ]},
   {path:'admin/books',component:BookViewComponentComponent},
-  {path:'admin/books/:bookId', component:BookDetailComponentComponent,
+  {path:'admin/books/:bookId',
     resolve: {
       bookObject: BookResolve
-    }},
+    }, children:[
+    {path:'',component:BookDetailComponentComponent,resolve:{
+        bookUserObject:BookDetailUserResolve
+    }}
+  ]},
   {path:'admin/chart',component:UsersChartComponent}
 ];
 

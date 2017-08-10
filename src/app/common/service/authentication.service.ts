@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import * as firebase from 'firebase';
 import {Router} from "@angular/router";
+import {Observer} from "rxjs/Observer";
+import {Observable} from "rxjs/Observable";
+import {Subject} from "rxjs/Subject";
 /**
  * Created by pthomas on 8/1/2017.
  */
@@ -10,6 +13,12 @@ export class AuthenticationService {
   isAdmin: boolean;
   token: string;
   email: string;
+  loginSubject = new Subject();
+/*  loginObservable: Observable<boolean>;
+  loginObservable = Observable.create((observer: Observer<boolean>) => {
+    observer.next(this.isLoggedin);
+  }
+  );*/
 
   constructor(private router:Router) {};
 
@@ -24,7 +33,7 @@ export class AuthenticationService {
         firebase.auth().currentUser.getIdToken()
           .then( (token: string) => {
             this.token = token;
-            this.isLoggedin=true;
+            this.loginStateChange(true);
             console.log(token);
             this.email=email;
             this.router.navigate(['/admin/admin/users']);
@@ -33,10 +42,15 @@ export class AuthenticationService {
       .catch(error => console.log(error));
   }
 
+  loginStateChange(value:boolean) {
+    this.isLoggedin=value;
+    this.loginSubject.next(value);
+  }
+
   public logout(): void {
     // clear token remove user from local storage to log user out
     localStorage.removeItem('token');
-    this.isLoggedin=false;
+    this.loginStateChange(false);
     this.router.navigate(['/login']);
   }
 

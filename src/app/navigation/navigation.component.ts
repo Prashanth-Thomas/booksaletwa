@@ -9,7 +9,7 @@ import {AuthenticationService} from '../common/service/authentication.service';
 })
 export class NavigationComponent implements OnInit {
   isadmin: boolean;
-
+  isloggedin: boolean;
   constructor(public authService: AuthenticationService) {
     console.log(this.authService.isLoggedin);
   }
@@ -21,7 +21,9 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.authService.loginSubject.subscribe((value:boolean)=>{
+      this.isloggedin=value;
+    });
   }
 
 }
