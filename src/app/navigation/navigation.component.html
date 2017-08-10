@@ -5,9 +5,10 @@
         <a class="navbar-brand" href="#">LibraryBuy</a>
       </div>
       <ul class="nav navbar-nav">
-        <li routerLinkActive="active" *ngIf="authService.isLoggedin"><a routerLink="/profile">Profile</a></li>
-        <li routerLinkActive="active" *ngIf="authService.isLoggedin"><a routerLink="/login">Personal Library</a></li>
-        <li routerLinkActive="active" *ngIf="authService.isLoggedin"><a routerLink="/bookView">Public Library</a></li>
+        <li routerLinkActive="active" *ngIf="authService.isLoggedin"><a routerLink="admin/profile">Profile</a></li>
+        <li routerLinkActive="active" *ngIf="authService.isLoggedin"><a routerLink="user/profile">Profile</a></li>
+        <li routerLinkActive="active" *ngIf="authService.isLoggedin"><a routerLink="user/personal-lib">Personal Library</a></li>
+        <li routerLinkActive="active" *ngIf="authService.isLoggedin"><a routerLink="user/public-lib">Public Library</a></li>
         <li routerLinkActive="active" *ngIf="authService.isLoggedin"><a routerLink="/admin/users">Users</a></li>
         <li routerLinkActive="active" *ngIf="authService.isLoggedin"><a routerLink="/admin/books">Books</a></li>
       </ul>

@@ -24,13 +24,16 @@ import {FilterPipe} from "../common/pipes/filter.pipe";
 import {SearchService} from "../common/service/search.service";
 import {UserResolve} from "../common/service/user-detailResolve.resolve";
 import {BookResolve} from "../common/service/book-detailResolve";
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import {SharedModule} from "../shared-module/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutes,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    SharedModule
   ],
   declarations: [
     BookViewComponentComponent,
@@ -45,7 +48,8 @@ import {BookResolve} from "../common/service/book-detailResolve";
     AdminComponentComponent,
     FilterPipe,
     UsersChartComponent,
-    SidebarComponent
+    SidebarComponent,
+    AdminProfileComponent,
   ],
   providers:[UserService,BookService,SearchService,UserResolve,BookResolve],
   bootstrap: [AdminComponentComponent]

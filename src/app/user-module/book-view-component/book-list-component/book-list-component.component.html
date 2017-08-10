@@ -1,0 +1,11 @@
+<div class="container-fluid text-center bg-grey" style="margin: 10px">
+<div class="row text-center">
+
+        <app-book-item-component
+          *ngFor="let bookEl of books; let i=index"
+          [book]="bookEl"
+          [bookId]="bookEl.bookId">
+        </app-book-item-component>
+
+</div>
+</div>

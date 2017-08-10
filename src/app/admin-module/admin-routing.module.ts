@@ -8,6 +8,8 @@ import {BookDetailComponentComponent} from "./book-view-component/book-detail-co
 import {UsersChartComponent} from "./users-chart/users-chart.component";
 import {UserResolve} from "../common/service/user-detailResolve.resolve";
 import {BookResolve} from "../common/service/book-detailResolve";
+import {ProfileComponent} from "../shared-module/profile/profile.component";
+import {AdminProfileComponent} from "./admin-profile/admin-profile.component";
 /**
  * Created by ajiben on 8/1/2017.
  */
@@ -15,6 +17,7 @@ import {BookResolve} from "../common/service/book-detailResolve";
 
 const adminRoutes:Routes=[
   { path: '', component: AdminComponentComponent},
+  { path: 'admin/profile' , component: AdminProfileComponent },
   {path:'admin/users',component:UserViewComponentComponent ,children:[
     {path:':userId',component:UserDetailComponentComponent,
       resolve: {

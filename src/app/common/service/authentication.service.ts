@@ -6,12 +6,12 @@ import {Router} from "@angular/router";
  */
 @Injectable()
 export class AuthenticationService {
-  isLoggedin=true;
+  isLoggedin=false;
   isAdmin: boolean;
   token: string;
   email: string;
 
-  constructor(private router:Router){};
+  constructor(private router:Router) {};
 
   public signUpUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)

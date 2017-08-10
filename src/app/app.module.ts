@@ -15,6 +15,7 @@ import {UserService} from "./common/service/user.service";
 import {BookService} from "./common/service/book.service";
 import {SearchService} from "./common/service/search.service";
 import {SharedModule} from "./shared-module/shared.module";
+import {UserModule} from "./user-module/user.module";
 
 
 @NgModule({
@@ -29,9 +30,11 @@ import {SharedModule} from "./shared-module/shared.module";
     LoginModule,
     AppRoutingModule,
     AdminModuleModule,
-    SharedModule
+    SharedModule,
+    UserModule
   ],
   providers: [ AuthenticationService, UserService, SearchService, BookService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
