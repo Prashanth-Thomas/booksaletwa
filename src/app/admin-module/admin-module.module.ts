@@ -37,7 +37,6 @@ import {BookDetailUserResolve} from "../common/service/book-detailUserResolver";
     SharedModule
   ],
   declarations: [
-    //BookDetailUserResolve,
     BookViewComponentComponent,
     UserViewComponentComponent,
     BookListComponentComponent,
@@ -53,7 +52,7 @@ import {BookDetailUserResolve} from "../common/service/book-detailUserResolver";
     SidebarComponent,
     AdminProfileComponent
   ],
-  providers:[UserService,BookService,SearchService,UserResolve,BookResolve],
+  providers:[BookDetailUserResolve,UserService,BookService,SearchService,UserResolve,BookResolve],
   bootstrap: [AdminComponentComponent]
 })
 export class AdminModuleModule { }

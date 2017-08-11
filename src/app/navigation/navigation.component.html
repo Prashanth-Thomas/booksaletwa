@@ -13,13 +13,12 @@
         <li routerLinkActive="active" *ngIf="isLoggedin"><a routerLink="/admin/books">Books</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <ng-template [ngIf]="!isAuthenticated">
+        <ng-template [ngIf]="!isLoggedin">
           <li routerLinkActive="active" *ngIf="!isLoggedin"><a routerLink="/signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li routerLinkActive="active" *ngIf="!isLoggedin"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          <li routerLinkActive="active" *ngIf="isLoggedin"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-        </ng-template>
 
-        <li routerLinkActive="active" *ngIf="isAuthenticated"><a routerLink="/login"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ng-template>
+        <li routerLinkActive="active" *ngIf="isLoggedin"><a routerLink="/login" (click)="onLogout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </nav>

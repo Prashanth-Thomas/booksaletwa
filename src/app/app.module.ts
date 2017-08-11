@@ -16,6 +16,8 @@ import {BookService} from "./common/service/book.service";
 import {SearchService} from "./common/service/search.service";
 import {SharedModule} from "./shared-module/shared.module";
 import {UserModule} from "./user-module/user.module";
+import {ProfileResolve} from "./common/service/profileResolve.resolve";
+
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import {UserModule} from "./user-module/user.module";
     SharedModule,
     UserModule
   ],
-  providers: [ AuthenticationService, UserService, SearchService, BookService ],
+  providers: [ AuthenticationService, UserService, SearchService, BookService,ProfileResolve ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

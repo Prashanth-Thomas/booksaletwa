@@ -7,6 +7,8 @@ import {ProfileComponent} from "./shared-module/profile/profile.component";
 import {UserProfileComponent} from "./user-module/user-profile/user-profile.component";
 import {PersonalLibComponent} from "./user-module/personal-lib/personal-lib.component";
 import {PublicLibComponent} from "./user-module/public-lib/public-lib.component";
+import {UserResolve} from "./common/service/user-detailResolve.resolve";
+import {ProfileResolve} from "./common/service/profileResolve.resolve";
 
 
 
@@ -17,7 +19,9 @@ const appRoutes: Routes = [
   { path: 'signUp' , component: SignUpComponent },
   { path: 'forgotPassword' , component: ForgotPasswordComponent },
   { path: 'admin', loadChildren: "./admin-module/admin-module.module#AdminModuleModule"},
-  { path: 'user/profile' , component: UserProfileComponent },
+  { path: 'user/profile' , component: UserProfileComponent, resolve: {
+    userObject: ProfileResolve
+  }},
   { path: 'user/personal-lib' , component: PersonalLibComponent },
   { path: 'user/public-lib' , component: PublicLibComponent }
 ];

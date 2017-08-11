@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {Observer} from "rxjs/Observer";
 import {Observable} from "rxjs/Observable";
 import {Subject} from "rxjs/Subject";
+import {User} from "../model/User.model";
 /**
  * Created by pthomas on 8/1/2017.
  */
@@ -22,9 +23,25 @@ export class AuthenticationService {
 
   constructor(private router:Router) {};
 
-  public signUpUser(email: string, password: string) {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+  public signUpUser(signinUserObj:{name:string, email:string, password:string, contact:number, role:string, address: string, image:string, userId;string}) {
+    firebase.auth().createUserWithEmailAndPassword(signinUserObj.email, signinUserObj.password).then(()=>{
+      firebase.auth().signInWithEmailAndPassword(signinUserObj.email, signinUserObj.password)
+        .then(response => {
+          firebase.auth().currentUser.getIdToken()
+            .then( (token: string) => {
+              this.token = token;
+              this.loginStateChange(true);
+              console.log(token);
+              this.email=signinUserObj.email;
+              this.router.navigate(['/admin/admin/users']);
+            });
+        })
+        .catch(error => console.log(error));
+    })
       .catch(error => console.log(error));
+
+
+
   }
 
   public signInUser(email: string, password: string) {
@@ -40,6 +57,11 @@ export class AuthenticationService {
           });
         })
       .catch(error => console.log(error));
+  }
+
+
+  signupUserProfile(user:User) {
+
   }
 
   loginStateChange(value:boolean) {
